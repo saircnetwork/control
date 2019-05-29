@@ -1,0 +1,11 @@
+[Unit]
+Description=IRC control bot
+
+[Service]
+ExecStart=/usr/bin/node /home/ashley/control/app.js
+User=ashley
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
