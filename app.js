@@ -21,11 +21,8 @@ bot.on('join', function(event) {
         console.log('Joined ' + event.channel);
     }
 
-    console.log(event);
-
     // Check if host is sa-irc.com and op the user if it does
     if(event.hostname.endsWith(".sa-irc.com")) {
-        console.log('sa-irc.com');
         bot.raw('MODE', event.channel, '+o', event.nick);
     }
 });
