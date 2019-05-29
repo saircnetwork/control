@@ -43,7 +43,14 @@ bot.on('privmsg', function(event) {
                 event.reply(stdout);
             });
         } else if(data[0] == '&update') {
-            child.exec('cd ~/control && git pull && systemctl --user restart control', function(error, stdout, stderror) {
+            child.exec('cd ~/control && git pull', function(error, stdout, stderror) {
+                if(error !== null) {
+                    event.reply('Error: ' + error);
+                    return;
+                }
+            });
+        } else if(data[0] == '&restart') {
+            child.exec('systemctl --user restart control', function(error, stdout, stderror) {
                 if(error !== null) {
                     event.reply('Error: ' + error);
                     return;
