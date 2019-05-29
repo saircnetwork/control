@@ -2,8 +2,8 @@
 Description=IRC control bot
 
 [Service]
+Type=simple
 ExecStart=/usr/bin/node /home/ashley/control/app.js
-User=ashley
 Restart=always
 RestartSec=10
 
